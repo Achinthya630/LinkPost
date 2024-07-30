@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Define a structure for the email node
+// Defining a structure for the email node
 struct EmailNode {
     char subject[50];
     char sender[50];
@@ -10,14 +10,14 @@ struct EmailNode {
     struct EmailNode* next;
 };
 
-// Define a structure for the user
+// Defining a structure for the user
 struct User {
     char* username;
     unsigned int passwordHash;
     struct EmailNode* inbox;
 };
 
-// Simple hashing function
+// hashing function for the password
 unsigned int hashPassword(const char* password) {
     unsigned int hash = 0;
     int c;
@@ -29,7 +29,7 @@ unsigned int hashPassword(const char* password) {
     return hash;
 }
 
-// Function to find a user by username
+// Function to find user using the username
 struct User* findUser(struct User* users, int numUsers, const char* targetUsername) {
     for (int i = 0; i < numUsers; ++i) {
         if (strcmp(users[i].username, targetUsername) == 0) {
